@@ -4,15 +4,16 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Foundation: design system and UI primitives
+- Editor chrome: navbar, project sidebar shell, dialog pattern
 
 ## Current Goal
 
-- Implement feature spec 01: design system (shadcn/ui, lucide-react, `cn()` helper, dark theme tokens).
+- Feature spec 02 (editor chrome) is implemented; next is the following feature spec.
 
 ## Completed
 
 - 01 Design System: shadcn/ui (base-nova, Base UI) with Button, Card, Dialog, Input, Tabs, Textarea, ScrollArea; `lucide-react`; `lib/utils.ts` re-exports `cn` from shadcn's `cn` package; dark-only tokens in `globals.css` mapped to the shadcn variables. `tsc`, `eslint` and `next build` pass; not yet checked visually in a browser.
+- 02 Editor chrome: `components/editor/editor-navbar.tsx` (fixed 56px, left/center/right, sidebar toggle with `PanelLeftOpen`/`PanelLeftClose`, empty right), `project-sidebar.tsx` (floating overlay, slides in from left, `isOpen` prop, Projects header + close, My Projects / Shared tabs with empty states, full-width New Project button), `editor-dialog.tsx` (reusable title/description/body/footer dialog shell using tokens; no actual dialogs yet), `editor-shell.tsx` (client state wiring) mounted from `app/page.tsx`. `tsc` and `eslint` pass; not yet checked visually.
 
 ## In Progress
 
@@ -33,4 +34,5 @@ Update this file whenever the current phase, active feature, or implementation s
 ## Session Notes
 
 - `globals.css` had been stripped to the Tailwind import before this feature, so the dark tokens from `ui-context.md` were added fresh.
+- `app/page.tsx` contained the 02-editor spec text (invalid TSX), so it was replaced with the editor shell.
 - `layout.tsx` metadata still says "Create Next App".

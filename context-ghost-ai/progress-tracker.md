@@ -36,3 +36,5 @@ Update this file whenever the current phase, active feature, or implementation s
 - `globals.css` had been stripped to the Tailwind import before this feature, so the dark tokens from `ui-context.md` were added fresh.
 - `app/page.tsx` contained the 02-editor spec text (invalid TSX), so it was replaced with the editor shell.
 - `layout.tsx` metadata still says "Create Next App".
+- 03-auth: Clerk wired per spec — `ClerkProvider` with `dark` theme and CSS-variable overrides (`lib/clerk-appearance.ts`), two-panel sign-in/sign-up (`components/auth/auth-shell.tsx`), protect-by-default `proxy.ts`, `/` redirects to `/editor` or `/sign-in`, editor moved to `/editor` with `UserButton` in the navbar. Metadata title updated to "Ghost AI".
+- Clerk agent skills live in `.agents/skills` (symlinked into `.claude/skills`); excluded from `tsconfig.json` and ESLint so their templates don't break `npm run build`.
